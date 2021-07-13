@@ -1,3 +1,3 @@
 # CRUD-Application
 
-## Setup `reactapi` first followed by `Angular-CRUD-Operations`
+## Setup `restapi` first followed by `Angular-CRUD-Operations`
