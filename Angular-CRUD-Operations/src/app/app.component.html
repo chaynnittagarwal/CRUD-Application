@@ -1,0 +1,120 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 mt-4">
+      <h1 class="text-center">Patient List</h1>
+      <br/>
+      <table class="table table-bordered table-striped table-hover">
+        <thead>
+          <tr>
+            <th class="text-center">ID</th>
+            <th class="text-center">Name</th>
+            <th class="text-center">Covid Status</th>
+            <th class="text-center">Hospitalized Status</th>
+            <th class="text-center">Status</th>
+            <th class="text-center">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            <td class="text-center">{{ user.Id }}</td>
+            <td class="text-center">{{ user.Name }}</td>
+            <td class="text-center">{{ user.Covid }}</td>
+            <td class="text-center">{{ user.Hospitalized }}</td>
+            <td class="text-center">{{ user.Status }}</td>
+
+            <td class="text-center">
+              <button type="button" class="btn btn-info btn-sm mr-2" (click)="showEditUserForm(user)">Edit</button>
+
+              <button type="button" class="btn btn-danger btn-sm" (click)="removeUser(user)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <button class="btn btn-success" (click)="showAddUserForm()">Add New User</button>
+
+      <div class="mt-4">
+        <form *ngIf="userForm">
+          
+          <h2>Add New User</h2>
+          
+          <div class="form-group row">
+            <label for="name" class="col-sm-2 col-form-label">Name</label>
+            <div class="col-sm-10">
+              <input type="text" name="Name" [(ngModel)]="newUser.Name" />
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="name" class="col-sm-2 col-form-label">Covid Status</label>
+            <div class="col-sm-10">
+              <select class="col-sm-2" name="Covid Status" [(ngModel)]="newUser.Covid">
+                <option value="Positive">Positive</option>
+                <option value="Negative">Negative</option>
+               </select> 
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="name" class="col-sm-2  col-form-label">Hospitalized Status</label>
+            <div class="col-sm-10">
+              <select class="col-sm-2" name="Hospitalized Status" [(ngModel)]="newUser.Hospitalized">
+                <option value="Admitted">Admitted</option>
+                <option value="Discharged">Discharged</option>
+               </select> 
+            </div>
+          </div>
+          <br/>
+          <p>
+            <button type="button" class="btn btn-primary mr-2" (click)="saveUser(newUser)">Submit</button>
+            <button type="button" class="btn btn-warning" (click)="cancelNewUser()">Cancel</button>
+          </p>
+        </form>
+
+        <form *ngIf="editUserForm">
+          <h2>Edit User Details</h2>
+
+          <div class="form-group row">
+            <label for="name" class="col-sm-2 col-form-label">Name</label>
+            <div class="col-sm-10">
+              <input type="text" name="Name" [(ngModel)]="editedUser.Name" />
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="name" class="col-sm-2 col-form-label">Covid Status</label>
+            <div class="col-sm-10">
+              <select class="col-sm-2" name="Covid Status" [(ngModel)]="editedUser.Covid">
+                <option value="Positive">Positive</option>
+                <option value="Negative">Negative</option>
+               </select> 
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="name" class="col-sm-2  col-form-label">Hospitalized Status</label>
+            <div class="col-sm-10">
+              <select class="col-sm-2" name="Hospitalized Status" [(ngModel)]="editedUser.Hospitalized">
+                <option value="Admitted">Admitted</option>
+                <option value="Discharged">Discharged</option>
+               </select> 
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="name" class="col-sm-2 col-form-label">Status</label>
+            <div class="col-sm-10">
+              <select class="col-sm-2" name="Status" [(ngModel)]="editedUser.Status">
+                <option value="Active">Active</option>
+                <option value="Inactive">Inactive</option>
+               </select> 
+            </div>
+          </div>
+          <p>
+            <button type="button" class="btn btn-primary mr-2" (click)="updateUser()">Submit</button>
+            <button type="button" class="btn btn-warning" (click)="cancelEdits()">Cancel</button>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
