@@ -42,7 +42,24 @@ Run `npm install` in the terminal to install the node_modules and its dependenci
 
   ## Step 4
 
-  Run `npm start`. The app will automatically conenct with the dataase and load the endpoint at `http://localhost:3000/`.
+  Run `npm start`. The app will automatically conenct with the database and load the endpoint at `http://localhost:3000/`.
+  
+  --------------------------------------------------------------------------------------------------------------------------------------------------------------
+  ## http://localhost:3000/employees/
+      Endpoint to fetch all the rows from the database.
+    
+  ## http://localhost:3000/employees/`id`
+      Endpoint to fetch the particular row from the database.
+  
+  ## http://localhost:3000/employees/delete/`id`
+      Endpoint to delete the particular row from the database.
+      
+  ## http://localhost:3000/employees/update/`id`
+      Endpoint to update the particular row in the databse
+ --------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+  
+  
 
 
 
